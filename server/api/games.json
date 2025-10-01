@@ -1,0 +1,200 @@
+[
+    {
+        "id": 1,
+        "title": "NBA 2K25",
+        "platform": [
+            "PS5"
+        ],
+        "genre": "Sports",
+        "price": 69.99,
+        "stock": 12,
+        "image": "https://via.placeholder.com/200x250?text=NBA+2K25"
+    },
+    {
+        "id": 2,
+        "title": "FIFA 25",
+        "platform": [
+            "PS5"
+        ],
+        "genre": "Sports",
+        "price": 69.99,
+        "stock": 10,
+        "image": "https://via.placeholder.com/200x250?text=FIFA+25"
+    },
+    {
+        "id": 3,
+        "title": "WWE 2K25",
+        "platform": [
+            "Xbox Series X"
+        ],
+        "genre": "Sports",
+        "price": 59.99,
+        "stock": 8,
+        "image": "https://via.placeholder.com/200x250?text=WWE+2K25"
+    },
+    {
+        "id": 4,
+        "title": "UFC 5",
+        "platform": [
+            "Xbox Series X"
+        ],
+        "genre": "Sports",
+        "price": 59.99,
+        "stock": 7,
+        "image": "https://via.placeholder.com/200x250?text=UFC+5"
+    },
+    {
+        "id": 5,
+        "title": "NHL 24",
+        "platform": [
+            "PS5"
+        ],
+        "genre": "Sports",
+        "price": 64.99,
+        "stock": 9,
+        "image": "https://via.placeholder.com/200x250?text=NHL+24"
+    },
+    {
+        "id": 6,
+        "title": "Madden NFL 25",
+        "platform": [
+            "PS5"
+        ],
+        "genre": "Sports",
+        "price": 69.99,
+        "stock": 11,
+        "image": "https://via.placeholder.com/200x250?text=Madden+NFL+25"
+    },
+    {
+        "id": 7,
+        "title": "Grand Theft Auto V",
+        "platform": [
+            "PS5"
+        ],
+        "genre": "Action",
+        "price": 59.99,
+        "stock": 14,
+        "image": "https://via.placeholder.com/200x250?text=GTA+V"
+    },
+    {
+        "id": 8,
+        "title": "Red Dead Redemption 2",
+        "platform": [
+            "Xbox Series X"
+        ],
+        "genre": "Action",
+        "price": 69.99,
+        "stock": 10,
+        "image": "https://via.placeholder.com/200x250?text=RDR2"
+    },
+    {
+        "id": 9,
+        "title": "Call of Duty: Modern Warfare",
+        "platform": [
+            "PS5"
+        ],
+        "genre": "Action",
+        "price": 69.99,
+        "stock": 12,
+        "image": "https://via.placeholder.com/200x250?text=COD+MW"
+    },
+    {
+        "id": 10,
+        "title": "Max Payne 3",
+        "platform": [
+            "Xbox Series X"
+        ],
+        "genre": "Action",
+        "price": 49.99,
+        "stock": 6,
+        "image": "https://via.placeholder.com/200x250?text=Max+Payne+3"
+    },
+    {
+        "id": 11,
+        "title": "Halo Infinite",
+        "platform": [
+            "Xbox Series X"
+        ],
+        "genre": "Action",
+        "price": 59.99,
+        "stock": 15,
+        "image": "https://via.placeholder.com/200x250?text=Halo+Infinite"
+    },
+    {
+        "id": 12,
+        "title": "Midnight Club: Los Angeles",
+        "platform": [
+            "PS5"
+        ],
+        "genre": "Action",
+        "price": 39.99,
+        "stock": 8,
+        "image": "https://via.placeholder.com/200x250?text=Midnight+Club"
+    },
+    {
+        "id": 13,
+        "title": "Donkey Kong Country",
+        "platform": [
+            "Nintendo Switch"
+        ],
+        "genre": "Friendly",
+        "price": 49.99,
+        "stock": 10,
+        "image": "https://via.placeholder.com/200x250?text=Donkey+Kong"
+    },
+    {
+        "id": 14,
+        "title": "Hogwarts Legacy",
+        "platform": [
+            "PS5"
+        ],
+        "genre": "Friendly",
+        "price": 69.99,
+        "stock": 12,
+        "image": "https://via.placeholder.com/200x250?text=Hogwarts+Legacy"
+    },
+    {
+        "id": 15,
+        "title": "The Legend of Zelda: Breath of the Wild",
+        "platform": [
+            "Nintendo Switch"
+        ],
+        "genre": "Friendly",
+        "price": 59.99,
+        "stock": 7,
+        "image": "https://via.placeholder.com/200x250?text=Zelda+BotW"
+    },
+    {
+        "id": 16,
+        "title": "The Legend of Zelda: Tears of the Kingdom",
+        "platform": [
+            "Nintendo Switch"
+        ],
+        "genre": "Friendly",
+        "price": 69.99,
+        "stock": 8,
+        "image": "https://via.placeholder.com/200x250?text=Zelda+TOTK"
+    },
+    {
+        "id": 17,
+        "title": "Super Mario Odyssey",
+        "platform": [
+            "Nintendo Switch"
+        ],
+        "genre": "Friendly",
+        "price": 59.99,
+        "stock": 9,
+        "image": "https://via.placeholder.com/200x250?text=Super+Mario+Odyssey"
+    },
+    {
+        "id": 18,
+        "title": "Super Mario Party",
+        "platform": [
+            "Nintendo Switch"
+        ],
+        "genre": "Friendly",
+        "price": 49.99,
+        "stock": 10,
+        "image": "https://via.placeholder.com/200x250?text=Super+Mario+Party"
+    }
+]
