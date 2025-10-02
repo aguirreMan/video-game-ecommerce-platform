@@ -12,7 +12,7 @@ export default function SearchBar() {
     function submitSearch(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
         if (searchedQuery.length >= 2) {
-            console.log('fetching recipes')
+            console.log('fetching games')
         }
     }
 
@@ -24,6 +24,7 @@ export default function SearchBar() {
                         value={searchedQuery}
                         onChange={handleSearch}
                     />
+                    <button type='submit'>Search</button>
                 </div>
             </section>
         </form>

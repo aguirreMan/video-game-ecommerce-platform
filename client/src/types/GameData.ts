@@ -7,3 +7,16 @@ export interface GameData {
     stock: number,
     image: string
 }
+
+//Data types for the custom select components
+export type OptionProps = {
+    label: string
+    value: string
+}
+
+export type SelectProps = {
+    value: string,
+    options: OptionProps[],
+    onChange: (value: string) => void
+    placeHolder?: string
+}
