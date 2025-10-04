@@ -1,14 +1,17 @@
 import { useState, useEffect, useRef } from 'react'
 import { type OptionProps, type SelectProps } from '../types/GameData'
+import { useNavigate } from 'react-router'
 
 export default function Select({ value, options, onChange, placeHolder }: SelectProps) {
     const [select, setSelect] = useState<boolean>(false)
     const selectRef = useRef<HTMLDivElement>(null)
 
+    const navigate = useNavigate()
+
     function selectOption(option: OptionProps) {
         if (!option) return
         if (value === option.value) return
-        //navigate with react router
+        navigate()  //filterd Games component
         onChange(option.value)
         setSelect(false)
     }
@@ -29,25 +32,28 @@ export default function Select({ value, options, onChange, placeHolder }: Select
 
 
     return (
-        <div className='relative cursor-pointer flex flex-col gap-0.5 p-3 mt-4 w-48'>
-            <div className='p-3 border border-gray-300 rounded-lg bg-white flex justify-between items-center'
-                onClick={() => setSelect(!select)}>
-                {value ? options.find(option => option.value === value)
-                    ?.label : placeHolder || 'Select an option'
-                }
+        <div ref={selectRef} className='relative w-48 mt-4 cursor-pointer'>
+            <div
+                className='p-3 border border-gray-300 bg-white flex justify-between items-center'
+                onClick={() => setSelect(!select)}
+            >
+                {value ? options.find(option => option.value === value)?.label : placeHolder || 'Select an option'}
+                <span className='text-gray-100 ml-2 '>{select ? '▲' : '▼'}</span>
             </div>
             {select && (
-                <ul className='absolute z-10 mt-1 w-full bg-white border-gray-300 rounded-lg'>
-                    {options.map(option => (
-                        <li
-                            className='px-3 py-2 hover:bg-blue-300 align-text-top'
-                            key={option.value}
-                            onClick={() => selectOption(option)}
-                        >
-                            {option.label}
-                        </li>
-                    ))}
-                </ul>
+                <div className='absolute top-full left-0 w-full'>
+                    <ul className='bg-gray-300 border border-gray-300 shadow-md mt-0'>
+                        {options.map(option => (
+                            <li
+                                className='px-3 py-2 hover:bg-blue-300 align-text-top cursor-pointer'
+                                key={option.value}
+                                onClick={() => selectOption(option)}
+                            >
+                                {option.label}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
         </div>
     )

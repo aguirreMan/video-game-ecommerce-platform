@@ -32,13 +32,13 @@ export default function Navbar() {
                     value={selectPlatform}
                     options={platformOptions}
                     onChange={setSelectedPlatform}
-                    placeHolder='browse by platform'
+                    placeHolder='Platform games'
                 />
                 <Select
                     value={selectGenre}
                     options={genreOptions}
                     onChange={setSelectedGenre}
-                    placeHolder='browse by genre'
+                    placeHolder='Genres'
                 />
             </div>
         </nav>
