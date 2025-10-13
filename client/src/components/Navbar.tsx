@@ -1,9 +1,24 @@
 import Select from './Select'
 import SearchBar from './SearchBar'
 import { type OptionProps } from '../types/GameData'
-import { useState } from 'react'
 
-export default function Navbar() {
+type NavbarProps = {
+    searchQuery: string
+    setSearchQuery: (value: string) => void
+    selectedGenre: string
+    setSelectedGenre: (value: string) => void
+    selectedPlatform: string
+    setSelectedPlatform: (value: string) => void
+}
+
+export default function Navbar({
+    searchQuery,
+    setSearchQuery,
+    selectedGenre,
+    setSelectedGenre,
+    selectedPlatform,
+    setSelectedPlatform
+}: NavbarProps) {
     const platformOptions: OptionProps[] = [
         { label: 'PS5', value: 'PS5' },
         { label: 'XBOX', value: 'XBOX' },
@@ -16,10 +31,6 @@ export default function Navbar() {
         { label: 'Family', value: 'family' }
     ]
 
-    const [selectPlatform, setSelectedPlatform] = useState<string>('')
-    const [selectGenre, setSelectedGenre] = useState<string>('')
-
-
     return (
         <nav className='bg-cyan-300 flex flex-col md:flex-row items-center 
         justify-between p-4 shadow-md'>
@@ -27,15 +38,15 @@ export default function Navbar() {
                 <span className='text-blue-700'>Game</span>Sphere
             </h1>
             <div className='flex flex-row md:flex-row items-center gap-4 md:mt-0'>
-                <SearchBar />
+                <SearchBar value={searchQuery} onChange={setSearchQuery} />
                 <Select
-                    value={selectPlatform}
+                    value={selectedPlatform}
                     options={platformOptions}
                     onChange={setSelectedPlatform}
                     placeHolder='Platform games'
                 />
                 <Select
-                    value={selectGenre}
+                    value={selectedGenre}
                     options={genreOptions}
                     onChange={setSelectedGenre}
                     placeHolder='Genres'

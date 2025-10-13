@@ -1,17 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
 import { type OptionProps, type SelectProps } from '../types/GameData'
-import { useNavigate } from 'react-router'
 
 export default function Select({ value, options, onChange, placeHolder }: SelectProps) {
     const [select, setSelect] = useState<boolean>(false)
     const selectRef = useRef<HTMLDivElement>(null)
 
-    const navigate = useNavigate()
 
     function selectOption(option: OptionProps) {
         if (!option) return
         if (value === option.value) return
-        navigate()  //filterd Games component
+        //filterd Games component
         onChange(option.value)
         setSelect(false)
     }
