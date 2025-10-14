@@ -1,4 +1,5 @@
 import type { GameData } from '../types/GameData'
+import AddToCartButton from './AddToCartButton'
 
 type GamesGridProps = {
     games: GameData[]
@@ -16,7 +17,9 @@ export default function GamesGrid({ games }: GamesGridProps) {
                     <h3>{game.title}</h3>
                     <p>{game.platform.join(', ')}</p>
                     <p>{game.genre}</p>
-                    <p>${game.price}</p>
+                    <AddToCartButton
+                        price={game.price}
+                        onAddtoCart={() => onAddtoCart(game)} />
                 </div>
             ))}
         </div>

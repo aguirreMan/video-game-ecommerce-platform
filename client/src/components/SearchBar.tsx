@@ -8,7 +8,7 @@ type SearchBarProps = {
 export default function SearchBar({ value, onChange }: SearchBarProps) {
     function handleSearch(event: ChangeEvent<HTMLInputElement>) {
         const query = event.target.value.toLowerCase()
-        onChange(query)  // Call parent's onChange
+        onChange(query)
     }
 
     function submitSearch(event: React.FormEvent<HTMLFormElement>) {
@@ -24,7 +24,7 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
                 <input
                     id='browse your favorite games'
                     type='search'
-                    value={value}  // Use prop value
+                    value={value}
                     onChange={handleSearch}
                     placeholder='search games'
                     className='w-full rounded-l-lg md:w-64 px-3 py-2 rounded-2-lg border 

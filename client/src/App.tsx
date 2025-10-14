@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Navbar from './components/Navbar'
 import ProductsPage from './components/ProductsPage'
 import { BrowserRouter, Routes, Route } from 'react-router'
+import { cartContext } from './context/CartProvider'
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -10,27 +11,29 @@ export default function App() {
 
 
   return (
-    <BrowserRouter>
-      <Navbar
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        selectedGenre={selectedGenre}
-        setSelectedGenre={setSelectedGenre}
-        selectedPlatform={selectedPlatform}
-        setSelectedPlatform={setSelectedPlatform}
-      />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProductsPage
-              searchQuery={searchQuery}
-              selectedGenre={selectedGenre}
-              selectedPlatform={selectedPlatform}
-            />
-          }
+    <cartContext.Provider value={cart}>
+      <BrowserRouter>
+        <Navbar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          selectedGenre={selectedGenre}
+          setSelectedGenre={setSelectedGenre}
+          selectedPlatform={selectedPlatform}
+          setSelectedPlatform={setSelectedPlatform}
         />
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProductsPage
+                searchQuery={searchQuery}
+                selectedGenre={selectedGenre}
+                selectedPlatform={selectedPlatform}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </cartContext.Provider>
   )
 }

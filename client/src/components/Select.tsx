@@ -5,7 +5,6 @@ export default function Select({ value, options, onChange, placeHolder }: Select
     const [select, setSelect] = useState<boolean>(false)
     const selectRef = useRef<HTMLDivElement>(null)
 
-
     function selectOption(option: OptionProps) {
         if (!option) return
         if (value === option.value) return
