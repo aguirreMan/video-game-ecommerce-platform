@@ -12,6 +12,8 @@ export type CartContextData = {
     items: CartData[]
     addToCart: (game: CartData) => void
     removeFromCart: (id: number) => void
+    decrementQuantity: (id: number) => void
+    clearCart: () => void
 }
 
 type CartProviderProps = {
@@ -38,7 +40,23 @@ export default function CartProvider({ children }: CartProviderProps) {
         setItems(items.filter(item => item.id !== id))
     }
 
-    const contextValue = { items, addToCart, removeFromCart }
+    function decrementQuantity(id: number) {
+        setItems(prevItems => prevItems.map(item => {
+            if (item.id === id) {
+                if (item.quantity > 1) {
+                    return { ...item, quantity: item.quantity - 1 }
+                }
+            }
+            return item
+        }))
+    }
+
+
+    function clearCart() {
+        setItems([])
+    }
+
+    const contextValue = { items, addToCart, removeFromCart, decrementQuantity, clearCart }
 
     return (
         <CartContext.Provider value={contextValue} >
