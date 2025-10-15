@@ -1,6 +1,5 @@
-import { type ReactNode } from 'react'
-import { CartContext } from './cartcontext';
-import { useState } from 'react'
+import { CartContext } from './cartContext'
+import { useState, type ReactNode } from 'react'
 
 type CartData = {
     id: number
@@ -24,6 +23,7 @@ export default function CartProvider({ children }: CartProviderProps) {
     const [items, setItems] = useState<CartData[]>([])
 
     function addToCart(game: CartData) {
+        console.log('Adding to cart:', game)
         const existingItem = items.find(item => item.id === game.id)
         if (existingItem) {
             setItems(items.map(item =>

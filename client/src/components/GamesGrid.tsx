@@ -17,9 +17,7 @@ export default function GamesGrid({ games }: GamesGridProps) {
                     <h3>{game.title}</h3>
                     <p>{game.platform.join(', ')}</p>
                     <p>{game.genre}</p>
-                    <AddToCartButton
-                        price={game.price}
-                        onAddtoCart={() => onAddtoCart(game)} />
+                    <AddToCartButton game={game} />
                 </div>
             ))}
         </div>

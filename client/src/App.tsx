@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
-import ProductsPage from './components/ProductsPage'
+import ProductsPage from './pages/ProductsPage'
 import { BrowserRouter, Routes, Route } from 'react-router'
-import { cartContext } from './context/CartProvider'
+import CartProvider from './context/CartProvider'
+import CheckoutPage from './pages/CheckoutPage'
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -11,7 +12,7 @@ export default function App() {
 
 
   return (
-    <cartContext.Provider value={cart}>
+    <CartProvider>
       <BrowserRouter>
         <Navbar
           searchQuery={searchQuery}
@@ -32,8 +33,11 @@ export default function App() {
               />
             }
           />
+          <Route
+            path="Checkout" element={<CheckoutPage />}
+          />
         </Routes>
       </BrowserRouter>
-    </cartContext.Provider>
+    </CartProvider>
   )
 }

@@ -8,7 +8,6 @@ export default function Select({ value, options, onChange, placeHolder }: Select
     function selectOption(option: OptionProps) {
         if (!option) return
         if (value === option.value) return
-        //filterd Games component
         onChange(option.value)
         setSelect(false)
     }

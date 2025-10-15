@@ -18,7 +18,6 @@ export default function ProductsPage({
     if (error) return <p>Error: {error}</p>
     if (!games) return <p>No games found</p>
 
-    // Filter based on props
     const filteredGames = games.filter(game => {
         const matchesSearch = game.title.toLowerCase().includes(searchQuery.toLowerCase())
         const matchesPlatform = !selectedPlatform || game.platform.includes(selectedPlatform)
