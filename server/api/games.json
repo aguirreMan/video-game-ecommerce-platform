@@ -25,7 +25,7 @@
         "id": 3,
         "title": "WWE 2K25",
         "platform": [
-            "Xbox Series X"
+            "XBOX"
         ],
         "genre": "Sports",
         "price": 59.99,
@@ -36,7 +36,7 @@
         "id": 4,
         "title": "UFC 5",
         "platform": [
-            "Xbox Series X"
+            "XBOX"
         ],
         "genre": "Sports",
         "price": 59.99,
@@ -80,7 +80,7 @@
         "id": 8,
         "title": "Red Dead Redemption 2",
         "platform": [
-            "Xbox Series X"
+            "XBOX"
         ],
         "genre": "Action",
         "price": 69.99,
@@ -102,7 +102,7 @@
         "id": 10,
         "title": "Max Payne 3",
         "platform": [
-            "Xbox Series X"
+            "XBOX"
         ],
         "genre": "Action",
         "price": 49.99,
@@ -113,7 +113,7 @@
         "id": 11,
         "title": "Halo Infinite",
         "platform": [
-            "Xbox Series X"
+            "XBOX"
         ],
         "genre": "Action",
         "price": 59.99,
@@ -135,7 +135,7 @@
         "id": 13,
         "title": "Donkey Kong Country",
         "platform": [
-            "Nintendo Switch"
+            "Nintendo"
         ],
         "genre": "Friendly",
         "price": 49.99,
@@ -157,7 +157,7 @@
         "id": 15,
         "title": "The Legend of Zelda: Breath of the Wild",
         "platform": [
-            "Nintendo Switch"
+            "Nintendo"
         ],
         "genre": "Friendly",
         "price": 59.99,
@@ -168,7 +168,7 @@
         "id": 16,
         "title": "The Legend of Zelda: Tears of the Kingdom",
         "platform": [
-            "Nintendo Switch"
+            "Nintendo"
         ],
         "genre": "Friendly",
         "price": 69.99,
@@ -179,7 +179,7 @@
         "id": 17,
         "title": "Super Mario Odyssey",
         "platform": [
-            "Nintendo Switch"
+            "Nintendo"
         ],
         "genre": "Friendly",
         "price": 59.99,
@@ -190,7 +190,7 @@
         "id": 18,
         "title": "Super Mario Party",
         "platform": [
-            "Nintendo Switch"
+            "Nintendo"
         ],
         "genre": "Friendly",
         "price": 49.99,
