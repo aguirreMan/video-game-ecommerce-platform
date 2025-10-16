@@ -4,6 +4,7 @@ import ProductsPage from './pages/ProductsPage'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import CartProvider from './context/CartProvider'
 import CheckoutPage from './pages/CheckoutPage'
+import GamesDetailsPage from './pages/GamesDetailsPage'
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -35,6 +36,9 @@ export default function App() {
           />
           <Route
             path="Checkout" element={<CheckoutPage />}
+          />
+          <Route
+            path='GameDetails/:gameId' element={<GamesDetailsPage />}
           />
         </Routes>
       </BrowserRouter>

@@ -6,6 +6,13 @@ export interface GameData {
     price: number,
     stock: number,
     image: string
+    reviews?: Review[]
+}
+
+export type Review = {
+    user: string
+    rating: number
+    comment: string
 }
 
 //Data types for the custom select components

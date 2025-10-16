@@ -14,8 +14,8 @@ export default function useFetchGameData() {
                 const res = await fetch("http://localhost:3000/api/games")
                 if (!res.ok) throw new Error("Failed to fetch games")
                 const json: GameData[] = await res.json()
-                console.log('fetched games', json)
-                console.log('hello world')
+                //console.log('fetched games', json)
+                //console.log('hello world')
                 setData(json)
             } catch (err: unknown) {
                 setError(err instanceof Error ? err.message : 'A unknown error occured')
