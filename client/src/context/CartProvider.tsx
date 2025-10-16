@@ -12,6 +12,7 @@ export type CartContextData = {
     items: CartData[]
     addToCart: (game: CartData) => void
     removeFromCart: (id: number) => void
+    incrementQuantity: (id: number) => void
     decrementQuantity: (id: number) => void
     clearCart: () => void
 }
@@ -19,7 +20,6 @@ export type CartContextData = {
 type CartProviderProps = {
     children: ReactNode
 }
-
 
 export default function CartProvider({ children }: CartProviderProps) {
     const [items, setItems] = useState<CartData[]>([])
@@ -34,6 +34,12 @@ export default function CartProvider({ children }: CartProviderProps) {
         } else {
             setItems([...items, { ...game, quantity: 1 }])
         }
+    }
+
+    function incrementQuantity(id: number) {
+        setItems(prevItems => prevItems.map(item =>
+            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        ))
     }
 
     function removeFromCart(id: number) {
@@ -51,12 +57,11 @@ export default function CartProvider({ children }: CartProviderProps) {
         }))
     }
 
-
     function clearCart() {
         setItems([])
     }
 
-    const contextValue = { items, addToCart, removeFromCart, decrementQuantity, clearCart }
+    const contextValue = { items, addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearCart }
 
     return (
         <CartContext.Provider value={contextValue} >

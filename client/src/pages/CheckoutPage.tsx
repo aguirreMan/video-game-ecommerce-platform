@@ -1,7 +1,7 @@
 import { useCart } from '../Hooks/useCart'
 
 export default function CheckoutPage() {
-    const { items, removeFromCart } = useCart()
+    const { items, removeFromCart, incrementQuantity, decrementQuantity, clearCart } = useCart()
 
     if (items.length === 0) {
         return (
@@ -28,12 +28,23 @@ export default function CheckoutPage() {
                             </p>
                         </div>
                         <button
+                            onClick={() => incrementQuantity(item.id)} className='bg-amber-400 cursor-pointer' >
+                            Increment
+                        </button>
+                        <button
+                            onClick={() => decrementQuantity(item.id)} className='bg-amber-800 cursor-pointer'>
+                            Decrement
+                        </button>
+                        <button
                             onClick={() => removeFromCart(item.id)}
                             className='bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded'>
                             Remove
                         </button>
                     </div>
                 ))}
+            </div>
+            <div className='ml-8 text-left'>
+                <button className='bg-red-700' onClick={() => clearCart()}>Clear Cart</button>
             </div>
 
             <div className='mt-8 text-right'>
