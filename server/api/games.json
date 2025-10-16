@@ -8,7 +8,24 @@
         "genre": "Sports",
         "price": 69.99,
         "stock": 12,
-        "image": "https://via.placeholder.com/200x250?text=NBA+2K25"
+        "image": "https://via.placeholder.com/200x250?text=NBA+2K25",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 2,
@@ -19,7 +36,24 @@
         "genre": "Sports",
         "price": 69.99,
         "stock": 10,
-        "image": "https://via.placeholder.com/200x250?text=FIFA+25"
+        "image": "https://via.placeholder.com/200x250?text=FIFA+25",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 3,
@@ -30,7 +64,24 @@
         "genre": "Sports",
         "price": 59.99,
         "stock": 8,
-        "image": "https://via.placeholder.com/200x250?text=WWE+2K25"
+        "image": "https://via.placeholder.com/200x250?text=WWE+2K25",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 4,
@@ -41,7 +92,24 @@
         "genre": "Sports",
         "price": 59.99,
         "stock": 7,
-        "image": "https://via.placeholder.com/200x250?text=UFC+5"
+        "image": "https://via.placeholder.com/200x250?text=UFC+5",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 5,
@@ -52,7 +120,24 @@
         "genre": "Sports",
         "price": 64.99,
         "stock": 9,
-        "image": "https://via.placeholder.com/200x250?text=NHL+24"
+        "image": "https://via.placeholder.com/200x250?text=NHL+24",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 6,
@@ -63,7 +148,24 @@
         "genre": "Sports",
         "price": 69.99,
         "stock": 11,
-        "image": "https://via.placeholder.com/200x250?text=Madden+NFL+25"
+        "image": "https://via.placeholder.com/200x250?text=Madden+NFL+25",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 7,
@@ -74,7 +176,24 @@
         "genre": "Action",
         "price": 59.99,
         "stock": 14,
-        "image": "https://via.placeholder.com/200x250?text=GTA+V"
+        "image": "https://via.placeholder.com/200x250?text=GTA+V",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 8,
@@ -85,7 +204,24 @@
         "genre": "Action",
         "price": 69.99,
         "stock": 10,
-        "image": "https://via.placeholder.com/200x250?text=RDR2"
+        "image": "https://via.placeholder.com/200x250?text=RDR2",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 9,
@@ -96,7 +232,24 @@
         "genre": "Action",
         "price": 69.99,
         "stock": 12,
-        "image": "https://via.placeholder.com/200x250?text=COD+MW"
+        "image": "https://via.placeholder.com/200x250?text=COD+MW",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 10,
@@ -107,7 +260,24 @@
         "genre": "Action",
         "price": 49.99,
         "stock": 6,
-        "image": "https://via.placeholder.com/200x250?text=Max+Payne+3"
+        "image": "https://via.placeholder.com/200x250?text=Max+Payne+3",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 11,
@@ -118,7 +288,24 @@
         "genre": "Action",
         "price": 59.99,
         "stock": 15,
-        "image": "https://via.placeholder.com/200x250?text=Halo+Infinite"
+        "image": "https://via.placeholder.com/200x250?text=Halo+Infinite",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 12,
@@ -129,7 +316,24 @@
         "genre": "Action",
         "price": 39.99,
         "stock": 8,
-        "image": "https://via.placeholder.com/200x250?text=Midnight+Club"
+        "image": "https://via.placeholder.com/200x250?text=Midnight+Club",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 13,
@@ -140,7 +344,24 @@
         "genre": "Friendly",
         "price": 49.99,
         "stock": 10,
-        "image": "https://via.placeholder.com/200x250?text=Donkey+Kong"
+        "image": "https://via.placeholder.com/200x250?text=Donkey+Kong",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 14,
@@ -151,7 +372,24 @@
         "genre": "Friendly",
         "price": 69.99,
         "stock": 12,
-        "image": "https://via.placeholder.com/200x250?text=Hogwarts+Legacy"
+        "image": "https://via.placeholder.com/200x250?text=Hogwarts+Legacy",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 15,
@@ -162,7 +400,24 @@
         "genre": "Friendly",
         "price": 59.99,
         "stock": 7,
-        "image": "https://via.placeholder.com/200x250?text=Zelda+BotW"
+        "image": "https://via.placeholder.com/200x250?text=Zelda+BotW",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 16,
@@ -173,7 +428,24 @@
         "genre": "Friendly",
         "price": 69.99,
         "stock": 8,
-        "image": "https://via.placeholder.com/200x250?text=Zelda+TOTK"
+        "image": "https://via.placeholder.com/200x250?text=Zelda+TOTK",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 17,
@@ -184,7 +456,24 @@
         "genre": "Friendly",
         "price": 59.99,
         "stock": 9,
-        "image": "https://via.placeholder.com/200x250?text=Super+Mario+Odyssey"
+        "image": "https://via.placeholder.com/200x250?text=Super+Mario+Odyssey",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     },
     {
         "id": 18,
@@ -195,6 +484,23 @@
         "genre": "Friendly",
         "price": 49.99,
         "stock": 10,
-        "image": "https://via.placeholder.com/200x250?text=Super+Mario+Party"
+        "image": "https://via.placeholder.com/200x250?text=Super+Mario+Party",
+        "reviews": [
+            {
+                "user": "Alex",
+                "rating": 5,
+                "comment": "Amazing game, really fun!"
+            },
+            {
+                "user": "Jordan",
+                "rating": 4,
+                "comment": "Great graphics and gameplay."
+            },
+            {
+                "user": "Sam",
+                "rating": 3,
+                "comment": "Fun, but could use more content."
+            }
+        ]
     }
 ]
