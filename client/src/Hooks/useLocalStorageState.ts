@@ -1,20 +1,14 @@
 import { useEffect, useState } from 'react'
-import type { GameData } from '../types/GameData'
 
-export default function useLocalStorageState() {
-    const CART_KEY: string = 'cart'
-    const [cart, setCart] = useState<null | GameData[]>(() => {
-        const getCartValue = localStorage.getItem(CART_KEY)
-        if (getCartValue) {
-            return JSON.parse(getCartValue)
-        } else {
-            return [] as GameData[]
-        }
+export default function useLocalStorageState<Type>(key: string, initialValue: Type) {
+    const [value, setValue] = useState<Type>(() => {
+        const storedValue = localStorage.getItem(key)
+        return storedValue ? JSON.parse(storedValue) : initialValue
     })
 
     useEffect(() => {
-        localStorage.setItem(CART_KEY, JSON.stringify(cart))
-    }, [cart])
+        localStorage.setItem(key, JSON.stringify(value))
+    }, [key, value])
 
-    return [cart, setCart] as const
+    return [value, setValue] as const
 }

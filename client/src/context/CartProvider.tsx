@@ -1,5 +1,6 @@
 import { CartContext } from './cartContext'
-import { useState, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import useLocalStorageState from '../Hooks/useLocalStorageState'
 
 type CartData = {
     id: number
@@ -22,7 +23,7 @@ type CartProviderProps = {
 }
 
 export default function CartProvider({ children }: CartProviderProps) {
-    const [items, setItems] = useState<CartData[]>([])
+    const [items, setItems] = useLocalStorageState<CartData[]>('cart', [])
 
     function addToCart(game: CartData) {
         console.log('Adding to cart:', game)
