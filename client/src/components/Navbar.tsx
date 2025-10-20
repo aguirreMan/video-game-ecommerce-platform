@@ -59,7 +59,7 @@ export default function Navbar({
                     placeHolder='Genres'
                 />
                 <Link to='/Checkout' className='relative'>
-                    <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded'>
+                    <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded cursor-pointer'>
                         Cart Checkout
                         {itemCount > 0 && (
                             <span className='absolute -top-2 -right-2 bg-red-600

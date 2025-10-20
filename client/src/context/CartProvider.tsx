@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { CartContext } from './cartContext'
 import type { ReactNode } from 'react'
 import useLocalStorageState from '../Hooks/useLocalStorageState'
@@ -16,6 +17,9 @@ export type CartContextData = {
     incrementQuantity: (id: number) => void
     decrementQuantity: (id: number) => void
     clearCart: () => void
+    createModalCheckout: () => void
+    closeModalCheckout: () => void
+    checkoutModal: boolean
 }
 
 type CartProviderProps = {
@@ -24,6 +28,7 @@ type CartProviderProps = {
 
 export default function CartProvider({ children }: CartProviderProps) {
     const [items, setItems] = useLocalStorageState<CartData[]>('cart', [])
+    const [checkoutModal, setCheckoutModal] = useState(false)
 
     function addToCart(game: CartData) {
         console.log('Adding to cart:', game)
@@ -62,7 +67,15 @@ export default function CartProvider({ children }: CartProviderProps) {
         setItems([])
     }
 
-    const contextValue = { items, addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearCart }
+    function createModalCheckout() {
+        setCheckoutModal(true)
+    }
+
+    function closeModalCheckout() {
+        setCheckoutModal(false)
+    }
+
+    const contextValue = { items, addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearCart, createModalCheckout, checkoutModal, closeModalCheckout }
 
     return (
         <CartContext.Provider value={contextValue} >

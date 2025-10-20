@@ -1,7 +1,8 @@
+import CheckoutModal from '../components/CheckoutModal'
 import { useCart } from '../Hooks/useCart'
 
 export default function CheckoutPage() {
-    const { items, removeFromCart, incrementQuantity, decrementQuantity, clearCart } = useCart()
+    const { items, removeFromCart, incrementQuantity, decrementQuantity, clearCart, createModalCheckout } = useCart()
 
     if (items.length === 0) {
         return (
@@ -49,6 +50,10 @@ export default function CheckoutPage() {
 
             <div className='mt-8 text-right'>
                 <h2 className='text-xl font-bold'>Total: ${total.toFixed(2)}</h2>
+            </div>
+            <div>
+                <button onClick={createModalCheckout} className='rounded bg-amber-500 font-bold cursor-pointer'>Order Now!</button>
+                <CheckoutModal />
             </div>
         </div>
     )
