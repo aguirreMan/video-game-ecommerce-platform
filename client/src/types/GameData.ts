@@ -27,3 +27,16 @@ export type SelectProps = {
     onChange: (value: string) => void
     placeHolder?: string
 }
+
+// Validation Types
+export type ValidationResult = {
+    hasSuccess: boolean
+    message?: string
+}
+
+export type ValidationRule<T> = {
+    required?: boolean
+    minLength?: number
+    maxLength?: number
+    custom?: (value: T) => ValidationResult
+}

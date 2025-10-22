@@ -1,21 +1,55 @@
 import { useCart } from '../Hooks/useCart'
 import { useState } from 'react'
+import type { ValidationResult } from '../types/GameData'
 
-
-type Validation = {
-    hasSucess: boolean
-    message: string
-}
 
 export default function CheckoutModal() {
     const { checkoutModal, closeModalCheckout, items } = useCart()
+
     const [inputValue, setInputValue] = useState('')
+    const [creditCard, setCreditCard] = useState('')
+    const [cvv, setCVV] = useState('')
+    const [formError, setFormError] = useState<boolean | null>(null)
 
     function validateNameField(event: React.ChangeEvent<HTMLInputElement>) {
         const validField = event.target.value
         const hasNumber = [...validField].some(char => !isNaN(parseInt(char)))
         if (!hasNumber) {
             setInputValue(validField)
+        }
+    }
+
+    function validateCreditCardFields(event: React.ChangeEvent<HTMLInputElement>): ValidationResult {
+        const inputLength = 4
+        const validNumbers = event.target.value
+        const correctLength = validNumbers.length === inputLength
+        const validateNumbers = [...validNumbers].every(number => number >= '0' && number <= '9')
+        const isValid = correctLength && validateNumbers
+
+        if (!isValid) {
+            setFormError(true)
+            return { hasSuccess: false, message: 'Must be 4 digits' }
+        } else {
+            setCreditCard(validNumbers)
+            setFormError(false)
+            return { hasSuccess: true, message: 'Thank you we hope you enjoy your game' }
+        }
+    }
+
+    function validateCVV(event: React.ChangeEvent<HTMLInputElement>): ValidationResult {
+        const inputLength = 3
+        const validNumbers = event.target.value
+        const correctLength = validNumbers.length === inputLength
+        const validateNumbers = [...validNumbers].every(number => number >= '0' && number <= '9')
+        const isValid = correctLength && validateNumbers
+
+        if (!isValid) {
+            setFormError(true)
+            return { hasSuccess: false, message: 'Must be 3 digits' }
+        } else {
+            setCVV(validNumbers)
+            setFormError(false)
+            return { hasSuccess: true }
         }
     }
 
@@ -44,15 +78,17 @@ export default function CheckoutModal() {
                     />
                 </div>
                 <div className='flex justify-between w-full mb-4'>
-                    <input type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none ml-4 w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none mr-4  w-20 p-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                    <input onChange={validateCreditCardFields} value={creditCard} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none ml-4 w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                    <input onChange={validateCreditCardFields} value={creditCard} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                    <input onChange={validateCreditCardFields} value={creditCard} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                    <input onChange={validateCreditCardFields} value={creditCard} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none mr-4  w-20 p-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
                 </div>
                 <div className='w-full mb-4 flex items-end'>
                     <div className='mr-4'>
                         <label htmlFor='cvv-number' className='block ml-4 mb-2'>CVV</label>
                         <input type='number'
+                            onChange={validateCVV}
+                            value={cvv}
                             placeholder='xxx'
                             className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none 
                             bg-white border-none focus:outline-none 
