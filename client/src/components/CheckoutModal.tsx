@@ -1,55 +1,111 @@
 import { useCart } from '../Hooks/useCart'
 import { useState } from 'react'
-import type { ValidationResult } from '../types/GameData'
-
+import type { SetStringState } from '../types/GameData'
 
 export default function CheckoutModal() {
-    const { checkoutModal, closeModalCheckout, items } = useCart()
+    const { checkoutModal, closeModalCheckout, clearCart, items } = useCart()
 
     const [inputValue, setInputValue] = useState('')
-    const [creditCard, setCreditCard] = useState('')
+    //Validating for credit card slots
+    const [creditCardSlot1, setCreditCardSlot1] = useState('')
+    const [creditCardSlot2, setCreditCardSlot2] = useState('')
+    const [creditCardSlot3, setCreditCardSlot3] = useState('')
+    const [creditCardSlot4, setCreditCardSlot4] = useState('')
+    //State for the cvv number 
     const [cvv, setCVV] = useState('')
-    const [formError, setFormError] = useState<boolean | null>(null)
+    //Error fields
+    const [nameInputError, setNameInputError] = useState<string>('')
+    const [cardError, setCardError] = useState<string>('')
+    const [cvvError, setcvvError] = useState<string>('')
+
 
     function validateNameField(event: React.ChangeEvent<HTMLInputElement>) {
         const validField = event.target.value
         const hasNumber = [...validField].some(char => !isNaN(parseInt(char)))
         if (!hasNumber) {
             setInputValue(validField)
+            setNameInputError('')
+        } else {
+            setNameInputError('Cannot contain numbers')
         }
     }
 
-    function validateCreditCardFields(event: React.ChangeEvent<HTMLInputElement>): ValidationResult {
+    function validateCreditCardFields(event: React.ChangeEvent<HTMLInputElement>, setter: SetStringState) {
         const inputLength = 4
-        const validNumbers = event.target.value
-        const correctLength = validNumbers.length === inputLength
-        const validateNumbers = [...validNumbers].every(number => number >= '0' && number <= '9')
-        const isValid = correctLength && validateNumbers
+        let userInput = event.target.value
 
-        if (!isValid) {
-            setFormError(true)
-            return { hasSuccess: false, message: 'Must be 4 digits' }
+        userInput = [...userInput].filter(char => char >= '0' && char <= '9').join('')
+
+        if (userInput.length > inputLength) {
+            userInput = userInput.slice(0, inputLength);
+        }
+        setter(userInput)
+
+        if (userInput.length === inputLength) {
+            setCardError('');
+        } else if (userInput.length > 0) {
+            setCardError('')
         } else {
-            setCreditCard(validNumbers)
-            setFormError(false)
-            return { hasSuccess: true, message: 'Thank you we hope you enjoy your game' }
+            setCardError('');
         }
     }
 
-    function validateCVV(event: React.ChangeEvent<HTMLInputElement>): ValidationResult {
+    function validateCVV(event: React.ChangeEvent<HTMLInputElement>) {
         const inputLength = 3
-        const validNumbers = event.target.value
-        const correctLength = validNumbers.length === inputLength
-        const validateNumbers = [...validNumbers].every(number => number >= '0' && number <= '9')
-        const isValid = correctLength && validateNumbers
+        const userInput = event.target.value
+        const digitsOnly = [...userInput].filter(char => char >= '0' && char <= '9').join('')
+        const limitOutput = digitsOnly.slice(0, inputLength)
 
-        if (!isValid) {
-            setFormError(true)
-            return { hasSuccess: false, message: 'Must be 3 digits' }
+        setCVV(limitOutput)
+
+        if (limitOutput.length !== inputLength) {
+            setcvvError('')
         } else {
-            setCVV(validNumbers)
-            setFormError(false)
-            return { hasSuccess: true }
+            setcvvError('')
+        }
+    }
+
+    function processPayment(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+
+        let validForm = true
+
+        const isNameValid = inputValue.length > 0
+        if (!isNameValid) {
+            setNameInputError('Name is required')
+            validForm = false
+        } else {
+            setNameInputError('')
+        }
+
+        const isCvvValid = cvv.length === 3
+        if (!isCvvValid) {
+            setcvvError('CVV must be 3 digits exact')
+            validForm = false
+        } else {
+            setcvvError('')
+        }
+
+        const fullCardNumber = creditCardSlot1 + creditCardSlot2 + creditCardSlot3 + creditCardSlot4
+        const isCardComplete = fullCardNumber.length === 16
+
+        if (!isCardComplete) {
+            setCardError('All card fields must be filled out')
+            validForm = false
+        } else {
+            setCardError('')
+        }
+
+        if (validForm) {
+            alert('Thank you for your purchase enjoy your games')
+            closeModalCheckout()
+            clearCart()
+            setInputValue('')
+            setCreditCardSlot1('')
+            setCreditCardSlot2('')
+            setCreditCardSlot3('')
+            setCreditCardSlot4('')
+            setCVV('')
         }
     }
 
@@ -57,7 +113,7 @@ export default function CheckoutModal() {
 
     return (
         <div className='fixed top-0 left-0 w-full h-full bg-gray-100 bg-opacity-80 flex items-center justify-center'>
-            <form className='h-auto flex-col items-center justify-center
+            <form onSubmit={processPayment} className='h-auto flex-col items-center justify-center
          bg-gray-100 shadow-lg fixed top-5 left-1/2 -translate-x-1/2 
          w-[66%] bg-opacity-50 rounded '>
                 <div className='flex justify-between w-full mb-4'>
@@ -76,13 +132,19 @@ export default function CheckoutModal() {
                         className='ml-4 bg-white border-none focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4 mb-4 rounded w-[50%] p-2'
                         type='text'
                     />
+                    {nameInputError && (
+                        <p className='ml-4 text-red-500 text-sm'>{nameInputError}</p>
+                    )}
                 </div>
                 <div className='flex justify-between w-full mb-4'>
-                    <input onChange={validateCreditCardFields} value={creditCard} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none ml-4 w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input onChange={validateCreditCardFields} value={creditCard} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input onChange={validateCreditCardFields} value={creditCard} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input onChange={validateCreditCardFields} value={creditCard} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none mr-4  w-20 p-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                    <input onChange={(event) => validateCreditCardFields(event, setCreditCardSlot1)} value={creditCardSlot1} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none ml-4 w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                    <input onChange={(event) => validateCreditCardFields(event, setCreditCardSlot2)} value={creditCardSlot2} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                    <input onChange={(event) => validateCreditCardFields(event, setCreditCardSlot3)} value={creditCardSlot3} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
+                    <input onChange={(event) => validateCreditCardFields(event, setCreditCardSlot4)} value={creditCardSlot4} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none mr-4  w-20 p-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
                 </div>
+                {cardError && (
+                    <p className='ml-4 text-red-500 text-sm mb-4'>{cardError}</p>
+                )}
                 <div className='w-full mb-4 flex items-end'>
                     <div className='mr-4'>
                         <label htmlFor='cvv-number' className='block ml-4 mb-2'>CVV</label>
@@ -94,12 +156,13 @@ export default function CheckoutModal() {
                             bg-white border-none focus:outline-none 
                             focus:ring-2 focus:ring-blue-500 rounded 
                             w-20 p-2 ml-4' />
+                        {cvvError && (
+                            <p className='ml-4 text-red-500 text-sm mt-1'>{cvvError}</p>
+                        )}
                     </div>
-                    <button className='ml-64 cursor-pointer bg-amber-700 rounded w-40 h-10 text-white font-bold'>Pay Now!</button>
+                    <button type='submit' className='ml-64 cursor-pointer bg-amber-700 rounded w-40 h-10 text-white font-bold'>Pay Now!</button>
                 </div>
             </form>
         </div>
     )
 }
-
-

@@ -1,3 +1,5 @@
+import type React from 'react'
+
 export interface GameData {
     id: number,
     title: string,
@@ -28,15 +30,5 @@ export type SelectProps = {
     placeHolder?: string
 }
 
-// Validation Types
-export type ValidationResult = {
-    hasSuccess: boolean
-    message?: string
-}
-
-export type ValidationRule<T> = {
-    required?: boolean
-    minLength?: number
-    maxLength?: number
-    custom?: (value: T) => ValidationResult
-}
+//This is for the credit card fields 
+export type SetStringState = React.Dispatch<React.SetStateAction<string>>
