@@ -32,9 +32,8 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
                 />
                 <button
                     type='submit'
-                    className='px-4 py-2 bg-blue-600 text-white 
-                    font-semibold rounded-r-lg hover:bg-blue-700 cursor-pointer'
-                >
+                    className='px-4 py-2 bg-base-buttons text-white 
+                    font-semibold rounded-r-lg cursor-pointer'>
                     Search
                 </button>
             </div>

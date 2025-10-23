@@ -12,6 +12,14 @@ export default function App() {
   const [selectedGenre, setSelectedGenre] = useState('')
   const [selectedPlatform, setSelectedPlatform] = useState('')
 
+  function handleSearchChange(query: string) {
+    setSearchQuery(query)
+    if (query.length > 0) {
+      setSelectedGenre('')
+      setSelectedPlatform('')
+    }
+  }
+
 
   return (
     <>
@@ -20,6 +28,7 @@ export default function App() {
         <BrowserRouter>
           <Navbar
             searchQuery={searchQuery}
+            handleSearchChange={handleSearchChange}
             setSearchQuery={setSearchQuery}
             selectedGenre={selectedGenre}
             setSelectedGenre={setSelectedGenre}

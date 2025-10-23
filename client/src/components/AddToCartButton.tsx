@@ -18,8 +18,9 @@ export default function AddToCartButton({ game }: AddtoCartprops) {
         })
     }
 
-
     return (
-        <button onClick={updateCart} className='bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 cursor-pointer'>${game.price} - Add to Cart</button>
+        <button onClick={updateCart}
+            className='bg-base-buttons text-base-text font-bold py-2 
+            hover:shadow-[0_0_20px_#4F46E5]/70 px-4 cursor-pointer rounded-md'>${game.price} - Add to Cart</button>
     )
 }

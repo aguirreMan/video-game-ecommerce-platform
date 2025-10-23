@@ -28,6 +28,7 @@ export type SelectProps = {
     options: OptionProps[],
     onChange: (value: string) => void
     placeHolder?: string
+    className?: string
 }
 
 //This is for the credit card fields 

@@ -26,9 +26,8 @@ export default function Select({ value, options, onChange, placeHolder }: Select
         }
     }, [select])
 
-
     return (
-        <div ref={selectRef} className='relative w-48 mt-4 cursor-pointer'>
+        <div ref={selectRef} className='relative sm:w-40 md:w-48 mt-4 cursor-pointer'>
             <div
                 className='p-3 border border-gray-300 bg-white flex justify-between items-center'
                 onClick={() => setSelect(!select)}
@@ -37,7 +36,7 @@ export default function Select({ value, options, onChange, placeHolder }: Select
                 <span className='text-gray-100 ml-2 '>{select ? '▲' : '▼'}</span>
             </div>
             {select && (
-                <div className='absolute top-full left-0 w-full'>
+                <div className='absolute top-full left-0 w-full z-10'>
                     <ul className='bg-gray-300 border border-gray-300 shadow-md mt-0'>
                         {options.map(option => (
                             <li

@@ -3,6 +3,7 @@ import SearchBar from './SearchBar'
 import { type OptionProps } from '../types/GameData'
 import { Link } from 'react-router'
 import { useCart } from '../Hooks/useCart'
+import { ShoppingCart } from 'lucide-react'
 
 type NavbarProps = {
     searchQuery: string
@@ -11,6 +12,7 @@ type NavbarProps = {
     setSelectedGenre: (value: string) => void
     selectedPlatform: string
     setSelectedPlatform: (value: string) => void
+    handleSearchChange: (query: string) => void
 }
 
 export default function Navbar({
@@ -37,40 +39,46 @@ export default function Navbar({
     ]
 
     return (
-        <nav className='bg-cyan-300 flex flex-col md:flex-row items-center 
-        justify-between p-4 shadow-md'>
-            <Link to='/'>
-                <h1 className='mt-0 p-4 text-4xl font-extrabold text-blue-950 hover:text-blue-700 transition-colors duration-300 cursor-pointer'>
-                    <span className='text-blue-700'>Game</span>Sphere
+        <nav className='bg-base-theme w-full p-4 pt-12 md:pt-4 shadow-md relative flex flex-col md:flex-row items-center justify-between gap-2'>
+            {/* Logo */}
+            <Link to='/' className='flex-shrink-0 mb-2 md:mb-0'>
+                <h1 className='text-3xl md:text-4xl font-extrabold text-base-logo cursor-pointer'>
+                    <span className='text-base-logo'>Game</span>Shop
                 </h1>
             </Link>
-            <div className='flex flex-row md:flex-row items-center gap-4 md:mt-0'>
+
+            <div className='flex-1 mb-2 md:mb-0 md:mx-4'>
                 <SearchBar value={searchQuery} onChange={setSearchQuery} />
+            </div>
+            {/* Selects for responsive design*/}
+            <div className='flex items-center gap-2 flex-wrap justify-end mt-2 md:mt-0'>
                 <Select
                     value={selectedPlatform}
                     options={platformOptions}
                     onChange={setSelectedPlatform}
-                    placeHolder='Platform games'
+                    placeHolder='Platform'
+                    className='min-w-[120px]'
                 />
                 <Select
                     value={selectedGenre}
                     options={genreOptions}
                     onChange={setSelectedGenre}
-                    placeHolder='Genres'
+                    placeHolder='Genre'
+                    className='min-w-[120px]'
                 />
-                <Link to='/Checkout' className='relative'>
-                    <button className='bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded cursor-pointer'>
-                        Cart Checkout
-                        {itemCount > 0 && (
-                            <span className='absolute -top-2 -right-2 bg-red-600
-                             text-white text-xs font-bold rounded-full h-6 w-6 flex 
-                             items-center justify-center'>
-                                {itemCount}
-                            </span>
-                        )}
-                    </button>
-                </Link>
             </div>
-        </nav >
+            {/* Made the cart icon to the right corner positioned absolute*/}
+            <Link
+                to='/Checkout'
+                className='absolute top-4 right-4 text-white font-semibold 
+                py-2 px-4 flex items-center justify-center gap-2 bg-base-buttons rounded'>
+                <ShoppingCart className='w-5 h-5 text-white' />
+                {itemCount > 0 && (
+                    <span className='absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center'>
+                        {itemCount}
+                    </span>
+                )}
+            </Link>
+        </nav>
     )
 }
