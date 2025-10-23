@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router'
 import CartProvider from './context/CartProvider'
 import CheckoutPage from './pages/CheckoutPage'
 import GamesDetailsPage from './pages/GamesDetailsPage'
+import { Toaster } from 'sonner'
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -13,35 +14,38 @@ export default function App() {
 
 
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <Navbar
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          selectedGenre={selectedGenre}
-          setSelectedGenre={setSelectedGenre}
-          selectedPlatform={selectedPlatform}
-          setSelectedPlatform={setSelectedPlatform}
-        />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <ProductsPage
-                searchQuery={searchQuery}
-                selectedGenre={selectedGenre}
-                selectedPlatform={selectedPlatform}
-              />
-            }
+    <>
+      <Toaster position='top-center' />
+      <CartProvider>
+        <BrowserRouter>
+          <Navbar
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            selectedGenre={selectedGenre}
+            setSelectedGenre={setSelectedGenre}
+            selectedPlatform={selectedPlatform}
+            setSelectedPlatform={setSelectedPlatform}
           />
-          <Route
-            path="Checkout" element={<CheckoutPage />}
-          />
-          <Route
-            path='GameDetails/:gameId' element={<GamesDetailsPage />}
-          />
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <ProductsPage
+                  searchQuery={searchQuery}
+                  selectedGenre={selectedGenre}
+                  selectedPlatform={selectedPlatform}
+                />
+              }
+            />
+            <Route
+              path="Checkout" element={<CheckoutPage />}
+            />
+            <Route
+              path='GameDetails/:gameId' element={<GamesDetailsPage />}
+            />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
+    </>
   )
 }

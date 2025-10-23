@@ -1,9 +1,12 @@
 import { useCart } from '../Hooks/useCart'
 import { useState } from 'react'
 import type { SetStringState } from '../types/GameData'
+import { toast } from 'sonner'
+import { useNavigate } from 'react-router'
 
 export default function CheckoutModal() {
     const { checkoutModal, closeModalCheckout, clearCart, items } = useCart()
+    const navigate = useNavigate()
 
     const [inputValue, setInputValue] = useState('')
     //Validating for credit card slots
@@ -97,7 +100,11 @@ export default function CheckoutModal() {
         }
 
         if (validForm) {
-            alert('Thank you for your purchase enjoy your games')
+            toast.success('Payment successful!', {
+                description: 'Your games are ready to download',
+                duration: 4000,
+            })
+
             closeModalCheckout()
             clearCart()
             setInputValue('')
@@ -106,6 +113,8 @@ export default function CheckoutModal() {
             setCreditCardSlot3('')
             setCreditCardSlot4('')
             setCVV('')
+            // Redirect to home page after successful payment
+            navigate('/')
         }
     }
 
