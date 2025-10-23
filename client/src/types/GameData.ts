@@ -29,6 +29,7 @@ export type SelectProps = {
     onChange: (value: string) => void
     placeHolder?: string
     className?: string
+    resetFilters: (value: string) => void
 }
 
 //This is for the credit card fields 

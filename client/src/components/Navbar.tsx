@@ -17,7 +17,8 @@ type NavbarProps = {
 
 export default function Navbar({
     searchQuery,
-    setSearchQuery,
+    //setSearchQuery,
+    handleSearchChange,
     selectedGenre,
     setSelectedGenre,
     selectedPlatform,
@@ -29,13 +30,15 @@ export default function Navbar({
     const platformOptions: OptionProps[] = [
         { label: 'PS5', value: 'PS5' },
         { label: 'XBOX', value: 'XBOX' },
-        { label: 'Nintendo', value: 'Nintendo' }
+        { label: 'Nintendo', value: 'Nintendo' },
+        { label: 'reset', value: 'reset' }
     ]
 
     const genreOptions: OptionProps[] = [
         { label: 'Sports', value: 'Sports' },
         { label: 'Action', value: 'Action' },
-        { label: 'Friendly', value: 'Friendly' }
+        { label: 'Friendly', value: 'Friendly' },
+        { label: 'reset', value: 'reset' }
     ]
 
     return (
@@ -48,7 +51,7 @@ export default function Navbar({
             </Link>
 
             <div className='flex-1 mb-2 md:mb-0 md:mx-4'>
-                <SearchBar value={searchQuery} onChange={setSearchQuery} />
+                <SearchBar value={searchQuery} onChange={handleSearchChange} />
             </div>
             {/* Selects for responsive design*/}
             <div className='flex items-center gap-2 flex-wrap justify-end mt-2 md:mt-0'>
@@ -58,6 +61,10 @@ export default function Navbar({
                     onChange={setSelectedPlatform}
                     placeHolder='Platform'
                     className='min-w-[120px]'
+                    resetFilters={() => {
+                        setSelectedGenre('')
+                        setSelectedPlatform('')
+                    }}
                 />
                 <Select
                     value={selectedGenre}
@@ -65,6 +72,10 @@ export default function Navbar({
                     onChange={setSelectedGenre}
                     placeHolder='Genre'
                     className='min-w-[120px]'
+                    resetFilters={() => {
+                        setSelectedGenre('')
+                        setSelectedPlatform('')
+                    }}
                 />
             </div>
             {/* Made the cart icon to the right corner positioned absolute*/}

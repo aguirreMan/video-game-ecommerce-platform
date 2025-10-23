@@ -1,14 +1,20 @@
 import { useState, useEffect, useRef } from 'react'
 import { type OptionProps, type SelectProps } from '../types/GameData'
 
-export default function Select({ value, options, onChange, placeHolder }: SelectProps) {
+export default function Select({ value, options, onChange, placeHolder, resetFilters }: SelectProps) {
     const [select, setSelect] = useState<boolean>(false)
     const selectRef = useRef<HTMLDivElement>(null)
 
     function selectOption(option: OptionProps) {
         if (!option) return
+        //Let user reset and clear out filters
+        if (option.value === 'reset') {
+            resetFilters('')
+        } else {
+            onChange(option.value)
+        }
         if (value === option.value) return
-        onChange(option.value)
+
         setSelect(false)
     }
 
@@ -25,6 +31,8 @@ export default function Select({ value, options, onChange, placeHolder }: Select
             document.removeEventListener('mousedown', clearSelect)
         }
     }, [select])
+
+
 
     return (
         <div ref={selectRef} className='relative sm:w-40 md:w-48 mt-4 cursor-pointer'>

@@ -13,9 +13,9 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
 
     function submitSearch(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
-        if (value.length >= 2) {
-            console.log('fetching games')
-        }
+        //if (value.length >= 2) {
+        //  console.log('fetching games')
+        //}
     }
 
     return (
