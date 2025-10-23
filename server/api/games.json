@@ -1,14 +1,14 @@
 [
     {
         "id": 1,
-        "title": "NBA 2K25",
+        "title": "NBA 2K26",
         "platform": [
             "PS5"
         ],
         "genre": "Sports",
         "price": 69.99,
         "stock": 12,
-        "image": "https://via.placeholder.com/200x250?text=NBA+2K25",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/coa3pk.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -29,14 +29,14 @@
     },
     {
         "id": 2,
-        "title": "FIFA 25",
+        "title": "FIFA 22",
         "platform": [
             "PS5"
         ],
         "genre": "Sports",
         "price": 69.99,
         "stock": 10,
-        "image": "https://via.placeholder.com/200x250?text=FIFA+25",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3dsm.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -64,7 +64,7 @@
         "genre": "Sports",
         "price": 59.99,
         "stock": 8,
-        "image": "https://via.placeholder.com/200x250?text=WWE+2K25",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co9c1v.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -92,7 +92,7 @@
         "genre": "Sports",
         "price": 59.99,
         "stock": 7,
-        "image": "https://via.placeholder.com/200x250?text=UFC+5",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co71e9.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -113,14 +113,14 @@
     },
     {
         "id": 5,
-        "title": "NHL 24",
+        "title": "NHL 22",
         "platform": [
             "PS5"
         ],
         "genre": "Sports",
         "price": 64.99,
         "stock": 9,
-        "image": "https://via.placeholder.com/200x250?text=NHL+24",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co3m03.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -148,7 +148,7 @@
         "genre": "Sports",
         "price": 69.99,
         "stock": 11,
-        "image": "https://via.placeholder.com/200x250?text=Madden+NFL+25",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2qmf.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -176,7 +176,7 @@
         "genre": "Action",
         "price": 59.99,
         "stock": 14,
-        "image": "https://via.placeholder.com/200x250?text=GTA+V",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co9rwo.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -204,7 +204,7 @@
         "genre": "Action",
         "price": 69.99,
         "stock": 10,
-        "image": "https://via.placeholder.com/200x250?text=RDR2",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co8y6p.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -232,7 +232,7 @@
         "genre": "Action",
         "price": 69.99,
         "stock": 12,
-        "image": "https://via.placeholder.com/200x250?text=COD+MW",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rsg.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -260,7 +260,7 @@
         "genre": "Action",
         "price": 49.99,
         "stock": 6,
-        "image": "https://via.placeholder.com/200x250?text=Max+Payne+3",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjo.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -288,7 +288,7 @@
         "genre": "Action",
         "price": 59.99,
         "stock": 15,
-        "image": "https://via.placeholder.com/200x250?text=Halo+Infinite",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2dto.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -316,7 +316,7 @@
         "genre": "Action",
         "price": 39.99,
         "stock": 8,
-        "image": "https://via.placeholder.com/200x250?text=Midnight+Club",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lcu.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -337,14 +337,14 @@
     },
     {
         "id": 13,
-        "title": "Donkey Kong Country",
+        "title": "Donkey Kong Bananza",
         "platform": [
             "Nintendo"
         ],
         "genre": "Friendly",
         "price": 49.99,
         "stock": 10,
-        "image": "https://via.placeholder.com/200x250?text=Donkey+Kong",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/coa082.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -372,7 +372,7 @@
         "genre": "Friendly",
         "price": 69.99,
         "stock": 12,
-        "image": "https://via.placeholder.com/200x250?text=Hogwarts+Legacy",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/coaav6.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -393,14 +393,14 @@
     },
     {
         "id": 15,
-        "title": "The Legend of Zelda: Breath of the Wild",
+        "title": "The Legend of Zelda: Link's Awakening",
         "platform": [
             "Nintendo"
         ],
         "genre": "Friendly",
         "price": 59.99,
         "stock": 7,
-        "image": "https://via.placeholder.com/200x250?text=Zelda+BotW",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1qve.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -421,14 +421,14 @@
     },
     {
         "id": 16,
-        "title": "The Legend of Zelda: Tears of the Kingdom",
+        "title": "The Legend of Zelda: Trident of Power",
         "platform": [
             "Nintendo"
         ],
         "genre": "Friendly",
         "price": 69.99,
         "stock": 8,
-        "image": "https://via.placeholder.com/200x250?text=Zelda+TOTK",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co6yl0.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -456,7 +456,7 @@
         "genre": "Friendly",
         "price": 59.99,
         "stock": 9,
-        "image": "https://via.placeholder.com/200x250?text=Super+Mario+Odyssey",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co63jd.webp",
         "reviews": [
             {
                 "user": "Alex",
@@ -484,7 +484,7 @@
         "genre": "Friendly",
         "price": 49.99,
         "stock": 10,
-        "image": "https://via.placeholder.com/200x250?text=Super+Mario+Party",
+        "image": "https://images.igdb.com/igdb/image/upload/t_cover_big/co1mxj.webp",
         "reviews": [
             {
                 "user": "Alex",
