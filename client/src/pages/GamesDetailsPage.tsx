@@ -66,7 +66,7 @@ export default function GamesDetailsPage() {
                     <p className='text-xl font-bold text-blue-900 mt-2'>${game.price.toFixed(2)}</p>
                     <AddToCartButton game={game} />
 
-                    {/* Game Features / Description */}
+                    {/* Game Features section */}
                     <div className='mt-6'>
                         <h2 className='text-2xl font-semibold text-blue-900 mb-2'>Game Features</h2>
                         <p>Lorem ipsum dolor sit amet consectetur

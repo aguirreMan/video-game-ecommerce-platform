@@ -15,32 +15,43 @@ export default function CheckoutPage() {
 
     const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
+    function formatPrice(amount: number) {
+        return new Intl.NumberFormat('en-us', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(amount)
+    }
+
     return (
         <div className='p-8'>
-            <h1 className='text-2xl font-bold mb-6'>Shopping Cart</h1>
+            <h1 className='text-2xl text-base-text flex justify-center font-bold mb-6'>Shopping Cart</h1>
 
-            <div className='space-y-4'>
+            <div className='space-y-6'>
                 {items.map(item => (
-                    <div key={item.id} className='border p-4 flex justify-between items-center'>
+                    <div key={item.id} className='border-none p-4 flex justify-between items-center'>
                         <div>
-                            <h3 className='font-semibold'>{item.title}</h3>
-                            <p className='text-gray-600'>
-                                ${item.price} x {item.quantity} = ${item.price * item.quantity}
+                            <h3 className='font-semibold text-base-text text-2xl'>{item.title}</h3>
+                            <p className='text-base-text'>
+                                ${item.price} x {item.quantity} = {formatPrice(item.price * item.quantity)}
                             </p>
                         </div>
-                        <button
-                            onClick={() => incrementQuantity(item.id)} className='bg-amber-400 cursor-pointer' >
-                            Increment
-                        </button>
-                        <button
-                            onClick={() => decrementQuantity(item.id)} className='bg-amber-800 cursor-pointer'>
-                            Decrement
-                        </button>
-                        <button
-                            onClick={() => removeFromCart(item.id)}
-                            className='bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded'>
-                            Remove
-                        </button>
+                        <div className='flex flex-row justify-between gap-12'>
+                            <button
+                                onClick={() => incrementQuantity(item.id)} className='rounded-full w-12 h-12 shadow-lg focus:outline-none bg-amber-300 cursor-pointer' >
+                                +
+                            </button>
+                            <button
+                                onClick={() => decrementQuantity(item.id)} className='rounded-full w-12 h-12 shadow-lg focus:outline-none bg-amber-300 cursor-pointer'>
+                                -
+                            </button>
+                            <button
+                                onClick={() => removeFromCart(item.id)}
+                                className='bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded cursor-pointer'>
+                                Remove
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -49,7 +60,7 @@ export default function CheckoutPage() {
             </div>
 
             <div className='mt-8 text-right'>
-                <h2 className='text-xl font-bold'>Total: ${total.toFixed(2)}</h2>
+                <h2 className='text-xl font-bold'>Total: {formatPrice(total)}</h2>
             </div>
             <div>
                 <button onClick={createModalCheckout} className='rounded bg-amber-500 font-bold cursor-pointer'>Order Now!</button>
