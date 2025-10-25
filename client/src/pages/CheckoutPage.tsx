@@ -56,14 +56,15 @@ export default function CheckoutPage() {
                 ))}
             </div>
             <div className='ml-8 text-left'>
-                <button className='bg-red-700' onClick={() => clearCart()}>Clear Cart</button>
+                <button className=' mt-4 border-0 bg-red-600 cursor-pointer rounded-full text-base-text text-2xl w-1/8' onClick={() => clearCart()}>Clear Cart</button>
             </div>
 
             <div className='mt-8 text-right'>
                 <h2 className='text-xl font-bold'>Total: {formatPrice(total)}</h2>
             </div>
-            <div>
-                <button onClick={createModalCheckout} className='rounded bg-amber-500 font-bold cursor-pointer'>Order Now!</button>
+            <div className='flex justify-center mt-8'>
+                <button onClick={createModalCheckout}
+                    className='bg-base-order-button text-base-text font-bold  px-6 py-3 rounded-lg shadow-md  cursor-pointer'>Order Now!</button>
                 <CheckoutModal />
             </div>
         </div>
