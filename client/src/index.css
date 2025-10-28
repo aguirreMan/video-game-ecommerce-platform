@@ -2,10 +2,13 @@
 
 @theme {
     --color-base-theme: #0F1115;
-    --color-base-buttons: #6C63FF;
+    --color-base-buttons: #706CFB;
     --color-base-grid: #1a1c23;
     --color-base-text: #E5E7EB;
     --color-base-logo: #0357ff;
     --color-base-review: #424242;
-    --color-base-order-button: #6a718a;
+    --color-base-order-button: #0357ff;
+    --color-base-action-buttons: #ddd9ff;
+    --color-base-remove-cart: #ff0000;
+    --color-base-purchase: #0357ff;
 }

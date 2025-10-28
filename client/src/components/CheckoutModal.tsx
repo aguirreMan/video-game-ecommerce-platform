@@ -101,7 +101,7 @@ export default function CheckoutModal() {
 
         if (validForm) {
             toast.success('Payment successful!', {
-                description: 'Your games are ready to download',
+                description: 'Your games are on their way enjoy!',
                 duration: 4000,
             })
 
@@ -120,58 +120,151 @@ export default function CheckoutModal() {
 
     if (!checkoutModal) return
 
+    const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+
     return (
-        <div className='fixed top-0 left-0 w-full h-full bg-gray-100 bg-opacity-80 flex items-center justify-center'>
-            <form onSubmit={processPayment} className='h-auto flex-col items-center justify-center
-         bg-gray-100 shadow-lg fixed top-5 left-1/2 -translate-x-1/2 
-         w-[66%] bg-opacity-50 rounded '>
-                <div className='flex justify-between w-full mb-4'>
-                    <h1 className='text-2xl font-bold'>GameShop.com</h1>
-                    <button className='cursor-pointer absolute top-2 right-2' onClick={closeModalCheckout}>x</button>
+        <div className='fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4'>
+            <div className='relative bg-gray-900 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl border border-gray-700'>
+                {/* Header */}
+                <div className='sticky top-0 bg-gray-900 border-b border-gray-700 px-6 py-4 flex justify-between items-center z-10'>
+                    <h1 className='text-2xl font-bold text-white'>Complete Your Purchase</h1>
+                    <button
+                        onClick={closeModalCheckout}
+                        className='text-gray-400 hover:text-white 
+                        transition-colors text-2xl leading-none w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-800'
+                        aria-label='Close'>
+                        ×
+                    </button>
                 </div>
-                <div className='mb-4 w-full'>
-                    {items.map(item =>
-                        <li key={item.id}>{item.title} {item.price}</li>
-                    )}
-                    <label htmlFor='name' className='block mb-2 ml-4'>Name:</label>
-                    <input
-                        onChange={validateNameField}
-                        value={inputValue}
-                        id='name'
-                        className='ml-4 bg-white border-none focus:outline-none focus:ring-2 focus:ring-blue-500 mt-4 mb-4 rounded w-[50%] p-2'
-                        type='text'
-                    />
-                    {nameInputError && (
-                        <p className='ml-4 text-red-500 text-sm'>{nameInputError}</p>
-                    )}
-                </div>
-                <div className='flex justify-between w-full mb-4'>
-                    <input onChange={(event) => validateCreditCardFields(event, setCreditCardSlot1)} value={creditCardSlot1} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none ml-4 w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input onChange={(event) => validateCreditCardFields(event, setCreditCardSlot2)} value={creditCardSlot2} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input onChange={(event) => validateCreditCardFields(event, setCreditCardSlot3)} value={creditCardSlot3} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none w-20 p-2 mr-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                    <input onChange={(event) => validateCreditCardFields(event, setCreditCardSlot4)} value={creditCardSlot4} type='number' placeholder='XXXX' className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none mr-4  w-20 p-2 rounded border-none focus:outline-none focus:ring-2 focus:ring-blue-500' />
-                </div>
-                {cardError && (
-                    <p className='ml-4 text-red-500 text-sm mb-4'>{cardError}</p>
-                )}
-                <div className='w-full mb-4 flex items-end'>
-                    <div className='mr-4'>
-                        <label htmlFor='cvv-number' className='block ml-4 mb-2'>CVV</label>
-                        <input type='number'
-                            onChange={validateCVV}
-                            value={cvv}
-                            placeholder='xxx'
-                            className='appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none 
-                            bg-white border-none focus:outline-none 
-                            focus:ring-2 focus:ring-blue-500 rounded 
-                            w-20 p-2 ml-4' />
-                        {cvvError && (
-                            <p className='ml-4 text-red-500 text-sm mt-1'>{cvvError}</p>
+
+                <form onSubmit={processPayment} className='p-6 space-y-6'>
+                    {/* Order Summary */}
+                    <div className='bg-gray-800 rounded-xl p-4 border border-gray-700'>
+                        <h2 className='text-lg font-semibold text-white mb-3'>Order Summary</h2>
+                        <div className='space-y-2 mb-4'>
+                            {items.map(item => (
+                                <div key={item.id} className='flex justify-between items-center text-sm'>
+                                    <span className='text-gray-300'>{item.title} × {item.quantity}</span>
+                                    <span className='text-white font-medium'>${(item.price * item.quantity).toFixed(2)}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <div className='border-t border-gray-700 pt-3 mt-3'>
+                            <div className='flex justify-between items-center'>
+                                <span className='text-lg font-bold text-white'>Total</span>
+                                <span className='text-xl font-bold text-blue-400'>${total.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Name Input */}
+                    <div>
+                        <label htmlFor='name' className='block text-sm font-medium text-gray-300 mb-2'>
+                            Cardholder Name
+                        </label>
+                        <input
+                            onChange={validateNameField}
+                            value={inputValue}
+                            id='name'
+                            className='w-full bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all'
+                            type='text'
+                            placeholder='John Doe'
+                        />
+                        {nameInputError && (
+                            <p className='mt-2 text-red-400 text-sm'>{nameInputError}</p>
                         )}
                     </div>
-                    <button type='submit' className='ml-64 cursor-pointer bg-amber-700 rounded w-40 h-10 text-white font-bold'>Pay Now!</button>
-                </div>
-            </form>
+
+                    {/* Card Number */}
+                    <div>
+                        <label className='block text-sm font-medium text-gray-300 mb-2'>
+                            Card Number
+                        </label>
+                        <div className='flex gap-4 flex-wrap justify-between'>
+                            <input
+                                onChange={(event) => validateCreditCardFields(event, setCreditCardSlot1)}
+                                value={creditCardSlot1}
+                                type='number'
+                                placeholder='0000'
+                                className='appearance-none [&::-webkit-inner-spin-button]:appearance-none 
+                                [&::-webkit-outer-spin-button]:appearance-none bg-gray-800 
+                                text-white border border-gray-700 rounded-lg px-4 py-3 
+                                focus:outline-none focus:ring-2 focus:ring-blue-500 
+                                focus:border-transparent transition-all text-center w-24'
+                            />
+                            <input
+                                onChange={(event) => validateCreditCardFields(event, setCreditCardSlot2)}
+                                value={creditCardSlot2}
+                                type='number'
+                                placeholder='0000'
+                                className='appearance-none [&::-webkit-inner-spin-button]:appearance-none 
+                                [&::-webkit-outer-spin-button]:appearance-none bg-gray-800 
+                                text-white border border-gray-700 rounded-lg px-4 py-3 
+                                focus:outline-none focus:ring-2 focus:ring-blue-500 
+                                focus:border-transparent transition-all text-center w-24'
+                            />
+                            <input
+                                onChange={(event) => validateCreditCardFields(event, setCreditCardSlot3)}
+                                value={creditCardSlot3}
+                                type='number'
+                                placeholder='0000'
+                                className='appearance-none [&::-webkit-inner-spin-button]:appearance-none 
+                                [&::-webkit-outer-spin-button]:appearance-none bg-gray-800 
+                                text-white border border-gray-700 rounded-lg px-4 py-3 
+                                focus:outline-none focus:ring-2 focus:ring-blue-500 
+                                focus:border-transparent transition-all text-center w-24'
+                            />
+                            <input
+                                onChange={(event) => validateCreditCardFields(event, setCreditCardSlot4)}
+                                value={creditCardSlot4}
+                                type='number'
+                                placeholder='0000'
+                                className='appearance-none [&::-webkit-inner-spin-button]:appearance-none 
+                                [&::-webkit-outer-spin-button]:appearance-none bg-gray-800 
+                                text-white border border-gray-700 rounded-lg px-4 py-3 
+                                focus:outline-none focus:ring-2 focus:ring-blue-500 
+                                focus:border-transparent transition-all text-center w-24'
+                            />
+                        </div>
+                        {cardError && (
+                            <p className='mt-2 text-red-400 text-sm'>{cardError}</p>
+                        )}
+                    </div>
+
+                    {/* CVV and Submit */}
+                    <div className='flex flex-col sm:flex-row gap-4 items-end'>
+                        <div className='flex-1'>
+                            <label htmlFor='cvv-number' className='block text-sm font-medium text-gray-300 mb-2'>
+                                CVV
+                            </label>
+                            <input
+                                type='number'
+                                onChange={validateCVV}
+                                value={cvv}
+                                placeholder='XXX'
+                                className='appearance-none [&::-webkit-inner-spin-button]:appearance-none 
+                                [&::-webkit-outer-spin-button]:appearance-none 
+                                bg-gray-800 text-white border border-gray-700 rounded-lg px-4 py-3 
+                                focus:outline-none focus:ring-2 focus:ring-blue-500 
+                                focus:border-transparent transition-all text-center w-20' />
+
+                            {cvvError && (
+                                <p className='mt-2 text-red-400 text-sm'>{cvvError}</p>
+                            )}
+                        </div>
+
+                        <div>
+                            <button
+                                type='submit'
+                                className='w-full sm:w-auto bg-base-purchase text-white font-bold px-8 py-3 rounded-lg 
+                                transition-all duration-200 shadow-lg hover:shadow-xl 
+                                transform hover:scale-105 active:scale-95 cursor-pointer'>
+                                Complete Purchase
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

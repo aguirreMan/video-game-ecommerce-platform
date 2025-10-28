@@ -54,12 +54,12 @@ export default function GamesDetailsPage() {
                         <span className='bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold'>
                             {game.genre}
                         </span>
-                        {game.platform.map((plat) => (
+                        {game.platform.map((platform) => (
                             <span
-                                key={plat}
+                                key={platform}
                                 className='bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold'
                             >
-                                {plat}
+                                {platform}
                             </span>
                         ))}
                     </div>
@@ -79,7 +79,7 @@ export default function GamesDetailsPage() {
 
             {/* Reviews Section */}
             <section className='flex flex-col gap-6'>
-                <h2 className='text-2xl font-bold text-blue-950'>Players Reviews</h2>
+                <h2 className='text-2xl font-bold text-base-text'>Players Reviews</h2>
                 {(!game.reviews || game.reviews.length === 0) ? (
                     <p className='text-gray-500 text-sm'>No reviews yet</p>
                 ) : (

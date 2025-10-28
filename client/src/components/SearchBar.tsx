@@ -26,14 +26,12 @@ export default function SearchBar({ value, onChange }: SearchBarProps) {
                     type='search'
                     value={value}
                     onChange={handleSearch}
-                    placeholder='search games'
-                    className='w-full rounded-l-lg md:w-64 px-3 py-2 rounded-2-lg border 
-                    border-gray-300 focus:outline-none bg-white'
+                    placeholder='Search games...'
+                    className='w-full bg-gray-800 text-white border border-gray-700 rounded-l-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-500'
                 />
                 <button
                     type='submit'
-                    className='px-4 py-2 bg-base-buttons text-white 
-                    font-semibold rounded-r-lg cursor-pointer'>
+                    className='px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-r-lg transition-colors cursor-pointer whitespace-nowrap'>
                     Search
                 </button>
             </div>

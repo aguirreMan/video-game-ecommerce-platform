@@ -35,20 +35,29 @@ export default function Select({ value, options, onChange, placeHolder, resetFil
 
 
     return (
-        <div ref={selectRef} className='relative sm:w-40 md:w-48 mt-4 cursor-pointer'>
+        <div ref={selectRef} className='relative cursor-pointer'>
             <div
-                className='p-3 border border-gray-300 bg-white flex justify-between items-center'
+                className='p-3 bg-gray-800 border border-gray-700 text-white rounded-lg flex justify-between items-center hover:bg-gray-750 transition-colors min-w-[140px]'
                 onClick={() => setSelect(!select)}
             >
-                {value ? options.find(option => option.value === value)?.label : placeHolder || 'Select an option'}
-                <span className='text-gray-100 ml-2 '>{select ? '▲' : '▼'}</span>
+                <span className='text-sm font-medium'>
+                    {value ? options.find(option => option.value === value)?.label : placeHolder || 'Select an option'}
+                </span>
+                <span className='ml-2 text-gray-400 transform transition-transform duration-200' style={{ transform: select ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                    ▼
+                </span>
             </div>
             {select && (
-                <div className='absolute top-full left-0 w-full z-10'>
-                    <ul className='bg-gray-300 border border-gray-300 shadow-md mt-0'>
+                <div className='absolute top-full left-0 w-full z-10 mt-1'>
+                    <ul className='bg-gray-800 border border-gray-700 shadow-xl rounded-lg overflow-hidden'>
                         {options.map(option => (
                             <li
-                                className='px-3 py-2 hover:bg-blue-300 align-text-top cursor-pointer'
+                                className={`px-4 py-2 text-sm cursor-pointer transition-colors ${option.value === 'reset'
+                                        ? 'text-red-400 hover:bg-red-900/20 border-t border-gray-700'
+                                        : value === option.value
+                                            ? 'bg-blue-600 text-white'
+                                            : 'text-gray-300 hover:bg-gray-700'
+                                    }`}
                                 key={option.value}
                                 onClick={() => selectOption(option)}
                             >

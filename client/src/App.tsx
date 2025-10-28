@@ -24,7 +24,21 @@ export default function App() {
   return (
     <>
       <div className='min-h-screen bg-base-grid'>
-        <Toaster position='top-center' />
+        <Toaster
+          position='top-center'
+          richColors={false}
+          theme='dark'
+          toastOptions={{
+            style: {
+              background: '#1a1c23',
+              color: '#E5E7EB',
+              border: '1px solid #374151',
+              borderRadius: '0.75rem',
+              padding: '1rem',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+            }
+          }}
+        />
         <CartProvider>
           <BrowserRouter>
             <Navbar
